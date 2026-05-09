@@ -50,7 +50,12 @@
     <!-- DIRECCIÓN -->
     <div class="address-section">
 
-      <div class="address-box">
+      <button
+        class="address-box"
+        id="mapsButton"
+        type="button"
+        aria-label="Abrir ubicación en Google Maps"
+      >
 
         <!-- ICONO -->
         <svg
@@ -79,14 +84,18 @@
           BOLIVAR 557
         </h2>
 
-      </div>
+      </button>
 
     </div>
 
     <!-- CONTACTOS -->
     <div class="contacts-section">
 
-      <div class="contact-card">
+      <button
+        class="contact-card whatsapp-button"
+        data-phone="5493487204907"
+        type="button"
+      >
 
         <p class="phone">
           3487-204907
@@ -96,9 +105,13 @@
           Galazzo Karen
         </p>
 
-      </div>
+      </button>
 
-      <div class="contact-card">
+      <button
+        class="contact-card whatsapp-button"
+        data-phone="5493487237297"
+        type="button"
+      >
 
         <p class="phone">
           3487-237297
@@ -108,9 +121,13 @@
           Brutti Di Yorio Lucila
         </p>
 
-      </div>
+      </button>
 
-      <div class="contact-card">
+      <button
+        class="contact-card whatsapp-button"
+        data-phone="5493487645410"
+        type="button"
+      >
 
         <p class="phone">
           3487-645410
@@ -120,11 +137,65 @@
           Brutti Di Yorio Mariana
         </p>
 
-      </div>
+      </button>
 
     </div>
 
   </main>
+
+  <script>
+
+    // =========================
+    // WHATSAPP
+    // =========================
+
+    const whatsappButtons =
+      document.querySelectorAll('.whatsapp-button');
+
+    whatsappButtons.forEach((button) => {
+
+      button.addEventListener('click', () => {
+
+        const phone =
+          button.dataset.phone;
+
+        const message =
+          encodeURIComponent(
+            'Hola! Me contacto desde la página web de Alas.'
+          );
+
+        const whatsappURL =
+          `https://wa.me/${phone}?text=${message}`;
+
+        window.open(
+          whatsappURL,
+          '_blank'
+        );
+
+      });
+
+    });
+
+    // =========================
+    // GOOGLE MAPS
+    // =========================
+
+    const mapsButton =
+      document.getElementById('mapsButton');
+
+    mapsButton.addEventListener('click', () => {
+
+      const mapsURL =
+        'https://www.google.com/maps/search/?api=1&query=Bolivar+557+Zarate+Buenos+Aires';
+
+      window.open(
+        mapsURL,
+        '_blank'
+      );
+
+    });
+
+  </script>
 
 </body>
 
