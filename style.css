@@ -11,10 +11,14 @@
 /* =========================
    BODY
 ========================= */
-
+html,
 body {
   min-height: 100vh;
+
+  zoom: 0.85;
+
   font-family: Arial, sans-serif;
+
   background: white;
   color: black;
 
@@ -22,11 +26,14 @@ body {
   justify-content: center;
   align-items: center;
 
-  padding: 2rem;
-  overflow-x: hidden;
+  padding: 1rem;
+
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
   position: relative;
 }
-
 /* =========================
    FONDO MULTICOLOR
 ========================= */
@@ -83,9 +90,11 @@ body::before {
 
   border-radius: 32px;
 
-  padding: 4rem 2rem;
+  padding: 2rem 1.5rem;
 
   text-align: center;
+  transform: scale(0.9);
+  transform-origin: center;
 
   box-shadow:
     0 10px 40px rgba(0, 0, 0, 0.10);
@@ -93,12 +102,13 @@ body::before {
   border: 2px solid rgba(255, 255, 255, 0.5);
 }
 
+
 /* =========================
    LOGO
 ========================= */
 
 .logo-section {
-  margin-bottom: 3.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .logo {
@@ -128,7 +138,8 @@ body::before {
 ========================= */
 
 .agenda-section {
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
+
 }
 
 .agenda-title {
@@ -148,7 +159,7 @@ body::before {
 ========================= */
 
 .address-section {
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 .address-box {
@@ -158,6 +169,56 @@ body::before {
   gap: 1rem;
 
   flex-wrap: wrap;
+
+  width: 100%;
+
+  padding: 1.2rem 2rem;
+
+  border: none;
+  border-radius: 24px;
+
+  cursor: pointer;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0, 140, 255, 0.18),
+      rgba(140, 0, 255, 0.18),
+      rgba(255, 0, 170, 0.18),
+      rgba(255, 230, 0, 0.18),
+      rgba(0, 255, 100, 0.18)
+    );
+
+  backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.08);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.4s ease;
+}
+
+.address-box:hover {
+  transform: translateY(-5px) scale(1.02);
+
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.15);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0, 140, 255, 0.28),
+      rgba(140, 0, 255, 0.28),
+      rgba(255, 0, 170, 0.28),
+      rgba(255, 230, 0, 0.28),
+      rgba(0, 255, 100, 0.28)
+    );
+}
+
+.address-box:active {
+  transform: scale(0.98);
 }
 
 .location-icon {
@@ -165,6 +226,12 @@ body::before {
   height: 52px;
 
   color: black;
+
+  transition: transform 0.3s ease;
+}
+
+.address-box:hover .location-icon {
+  transform: rotate(-8deg) scale(1.1);
 }
 
 .address {
@@ -186,38 +253,125 @@ body::before {
 .contacts-section {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 1rem;
 }
 
 .contact-card {
-  padding: 1rem;
+  width: 100%;
 
-  border-radius: 18px;
+  border: none;
 
-  background: rgba(255, 255, 255, 0.45);
+  padding: 1.4rem;
 
-  backdrop-filter: blur(5px);
+  border-radius: 24px;
+
+  cursor: pointer;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.75),
+      rgba(255, 255, 255, 0.45)
+    );
+
+  backdrop-filter: blur(12px);
+
+  position: relative;
+
+  overflow: hidden;
 
   transition:
     transform 0.3s ease,
-    box-shadow 0.3s ease;
+    box-shadow 0.3s ease,
+    border 0.3s ease;
+
+  position: relative;
+  isolation: isolate;
+}
+
+/* BRILLO SUPERIOR */
+
+.contact-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: -50%;
+  left: -50%;
+
+  width: 200%;
+  height: 200%;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent,
+      rgba(255, 255, 255, 0.5),
+      transparent
+    );
+
+  transform: rotate(25deg);
+
+  transition: 0.8s;
+}
+
+.contact-card:hover::before {
+  left: 100%;
+}
+
+/* BORDE ARCOIRIS */
+
+.contact-card::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: 24px;
+
+  border: 3px solid transparent;
+
+  background:
+    linear-gradient(
+      90deg,
+      #008cff,
+      #8c00ff,
+      #ff00aa,
+      #ff0000,
+      #ffe600,
+      #00ff64,
+      #008cff
+    ) border-box;
+
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+
+  pointer-events: none;
 }
 
 .contact-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px) scale(1.02);
 
   box-shadow:
-    0 10px 25px rgba(0, 0, 0, 0.08);
+    0 18px 35px rgba(0, 0, 0, 0.12);
+}
+
+.contact-card:active {
+  transform: scale(0.98);
 }
 
 .phone {
   font-family: 'Chewy', cursive;
 
-  font-size: clamp(1.8rem, 5vw, 2.7rem);
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
 
   color: black;
 
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.5rem;
+
+  position: relative;
+  z-index: 2;
 }
 
 .name {
@@ -226,6 +380,9 @@ body::before {
   font-size: clamp(1.4rem, 4vw, 2.1rem);
 
   color: black;
+
+  position: relative;
+  z-index: 2;
 }
 
 /* =========================
@@ -235,16 +392,36 @@ body::before {
 @media (max-width: 768px) {
 
   body {
-    padding: 1rem;
+    padding: 0.8rem;
   }
 
   .container {
-    padding: 2.5rem 1.3rem;
+    padding: 2rem 1.2rem;
+
     border-radius: 24px;
+
+    transform: scale(0.92);
+    transform-origin: center;
+  }
+
+  .logo-section {
+    margin-bottom: 1.5rem;
+  }
+
+  .agenda-section {
+    margin-bottom: 2rem;
+  }
+
+  .address-section {
+    margin-bottom: 2rem;
+  }
+
+  .contacts-section {
+    gap: 1.2rem;
   }
 
   .logo {
-    width: 180px;
+    width: 170px;
   }
 
   .agenda-title {
@@ -252,28 +429,52 @@ body::before {
   }
 
   .location-icon {
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
   }
 
-  .contacts-section {
-    gap: 2rem;
+  .contact-card {
+    padding: 1rem;
   }
 }
 
 @media (max-width: 480px) {
 
+  body {
+    padding: 0.5rem;
+  }
+
   .container {
-    padding: 2rem 1rem;
+    padding: 1.5rem 0.9rem;
+
+    border-radius: 20px;
+
+    transform: scale(0.82);
+    transform-origin: center;
   }
 
   .logo {
-    width: 150px;
+    width: 135px;
+  }
+
+  .logo-section {
+    margin-bottom: 1rem;
+  }
+
+  .agenda-section {
+    margin-bottom: 1.5rem;
+  }
+
+  .address-section {
+    margin-bottom: 1.5rem;
   }
 
   .address-box {
     flex-direction: column;
-    gap: 0.6rem;
+
+    gap: 0.5rem;
+
+    padding: 1rem;
   }
 
   .agenda-title {
@@ -282,5 +483,35 @@ body::before {
 
   .contact-card {
     padding: 0.8rem;
+  }
+
+  .contacts-section {
+    gap: 1rem;
+  }
+
+  .phone {
+    font-size: 1.5rem;
+  }
+
+  .name {
+    font-size: 1.2rem;
+  }
+}
+
+/* =========================
+   PANTALLAS BAJITAS
+========================= */
+
+@media (max-height: 850px) {
+
+  .container {
+    transform: scale(0.85);
+  }
+}
+
+@media (max-height: 700px) {
+
+  .container {
+    transform: scale(0.72);
   }
 }
