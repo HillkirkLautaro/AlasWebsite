@@ -18,8 +18,36 @@ body {
   zoom: 0.85;
 
   font-family: Arial, sans-serif;
+  background:
+    radial-gradient(circle at top left,
+      rgba(0, 140, 255, 0.35),
+      transparent 25%),
 
-  background: white;
+    radial-gradient(circle at top center,
+      rgba(140, 0, 255, 0.35),
+      transparent 25%),
+
+    radial-gradient(circle at top right,
+      rgba(255, 0, 170, 0.35),
+      transparent 25%),
+
+    radial-gradient(circle at center right,
+      rgba(255, 0, 0, 0.30),
+      transparent 25%),
+
+    radial-gradient(circle at bottom right,
+      rgba(255, 230, 0, 0.35),
+      transparent 25%),
+
+    radial-gradient(circle at bottom center,
+      rgba(0, 255, 100, 0.35),
+      transparent 25%),
+
+    radial-gradient(circle at bottom left,
+      rgba(0, 140, 255, 0.35),
+      transparent 25%);
+
+  
   color: black;
 
   display: flex;
@@ -84,7 +112,34 @@ body::before {
   width: 100%;
   max-width: 750px;
 
-  background: rgba(255, 255, 255, 0.82);
+  background:
+    radial-gradient(circle at top left,
+      rgba(0, 140, 255, 0.35),
+      transparent 25%),
+
+    radial-gradient(circle at top center,
+      rgba(140, 0, 255, 0.35),
+      transparent 25%),
+
+    radial-gradient(circle at top right,
+      rgba(255, 0, 170, 0.35),
+      transparent 25%),
+
+    radial-gradient(circle at center right,
+      rgba(255, 0, 0, 0.30),
+      transparent 25%),
+
+    radial-gradient(circle at bottom right,
+      rgba(255, 230, 0, 0.35),
+      transparent 25%),
+
+    radial-gradient(circle at bottom center,
+      rgba(0, 255, 100, 0.35),
+      transparent 25%),
+
+    radial-gradient(circle at bottom left,
+      rgba(0, 140, 255, 0.35),
+      transparent 25%);
 
   backdrop-filter: blur(12px);
 
@@ -112,7 +167,7 @@ body::before {
 }
 
 .logo {
-  width: 230px;
+  width: 500px;
   max-width: 100%;
   margin-bottom: 1.5rem;
 
@@ -145,9 +200,9 @@ body::before {
 .agenda-title {
   font-family: 'Cormorant Garamond', serif;
 
-  font-size: clamp(3rem, 9vw, 5rem);
+  font-size: 2rem;
 
-  font-weight: 300;
+  font-weight: 150;
 
   letter-spacing: 5px;
 
@@ -321,33 +376,36 @@ body::before {
 
 /* BORDE ARCOIRIS */
 
-.contact-card::after {
-  content: "";
+.contact-card {
+  position: relative;
+  width: 100%;
+  padding: 0.8rem;
 
-  position: absolute;
+  border-radius: 18px;
 
-  inset: 0;
-
-  border-radius: 24px;
-
-  border: 3px solid transparent;
+  cursor: pointer;
 
   background:
     linear-gradient(
-      90deg,
-      #008cff,
-      #8c00ff,
-      #ff00aa,
-      #ff0000,
-      #ffe600,
-      #00ff64,
-      #008cff
-    ) border-box;
+      135deg,
+      rgba(0, 140, 255, 0.18),
+      rgba(140, 0, 255, 0.18),
+      rgba(255, 0, 170, 0.18),
+      rgba(255, 230, 0, 0.18),
+      rgba(0, 255, 100, 0.18)
+    );
 
-  -webkit-background-clip: border-box;
-  background-clip: border-box;
+  backdrop-filter: blur(10px);
 
-  pointer-events: none;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.08);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.4s ease;
+
+  overflow: hidden;
 }
 
 .contact-card:hover {
